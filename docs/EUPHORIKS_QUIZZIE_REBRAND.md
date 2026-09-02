@@ -1,6 +1,6 @@
 # Euphoriks Quizzie rebrand
 
-The public-facing rebrand from **CurioVerse** to **Euphoriks Quizzie** is complete. The GitHub repository has also been renamed to **`tvc-ext/euphoriks-quizzie`**. The Android application/package identity used by the existing Google Play closed test remains unchanged.
+The public-facing brand is **Euphoriks Quizzie** and the GitHub repository is **`tvc-ext/euphoriks-quizzie`**. The Android application/package identity used by the existing Google Play closed test remains unchanged.
 
 ## Brand architecture
 
@@ -14,17 +14,17 @@ The public-facing rebrand from **CurioVerse** to **Euphoriks Quizzie** is comple
 
 ### App UI
 
-- Material app title changed to `Euphoriks Quizzie`.
+- Material app title is `Euphoriks Quizzie`.
 - App bar uses `Quizzie` with `by Euphoriks`.
-- Splash uses the new Quizzie/Euphoriks lockup and removes the historical logo asset dependency.
+- Splash uses the Quizzie/Euphoriks lockup.
 - Onboarding says `Welcome to Quizzie!` and `Enter Quizzie`.
-- Branding tests were updated.
+- Branding tests cover the current public identity.
 
 ### Android release packaging
 
 - Existing generated Android package/application identity remains unchanged.
 - Release workflow replaces the generated Android display label with `Euphoriks Quizzie`.
-- Release workflow injects a new Quizzie launcher drawable.
+- Release workflow injects the Quizzie launcher drawable.
 - Existing `CURIOVERSE_...` signing-secret/variable names remain for credential/configuration continuity.
 - Tester APK/AAB artifact display names use `euphoriks-quizzie-*`.
 - Families-sensitive merged-manifest audit remains in place.
@@ -32,16 +32,16 @@ The public-facing rebrand from **CurioVerse** to **Euphoriks Quizzie** is comple
 ### Website and privacy
 
 - Landing page, privacy page and support page use Euphoriks Quizzie branding.
-- GitHub Pages now follows the renamed repository at `https://tvc-ext.github.io/euphoriks-quizzie/`.
-- Privacy policy records the historical product name while distinguishing it from retained technical identifiers.
-- Pages validation checks privacy wording and public branding.
+- GitHub Pages follows the renamed repository at `https://tvc-ext.github.io/euphoriks-quizzie/`.
+- Privacy policy distinguishes public branding from retained release-critical technical identifiers.
+- Pages validation checks privacy wording and rejects the former public brand in website content.
 
 ### Documentation and repository
 
-- Repository renamed from `tvc-ext/curioverse` to `tvc-ext/euphoriks-quizzie`.
-- README and contributor guidance use the new brand.
-- Product vision, architecture, roadmap, public-website notes, Play Families/Data Safety baseline and release guide are rebranded/refreshed.
-- Outdated claims such as a fully network-free prototype were removed; the docs distinguish local-first state from public educational network requests.
+- Repository: `tvc-ext/euphoriks-quizzie`.
+- README and contributor guidance use the current brand.
+- Product vision, architecture, roadmap, public-website notes, Play Families/Data Safety baseline and release guide are aligned to the current name.
+- Outdated fully network-free wording was removed; docs distinguish local-first state from public educational network requests.
 
 ### Store listing assets
 
@@ -58,13 +58,13 @@ The following remain unchanged to preserve Google Play update and signing contin
 
 - Android package/application ID.
 - Dart package name/import prefix (`curioverse`).
-- Existing signing-secret names and upload key.
+- Existing `CURIOVERSE_...` signing-secret/configuration names and upload key.
 
-The former GitHub repository slug and Pages path are no longer active project identifiers after the repository rename.
+These are internal compatibility identifiers only. They must not be used as the public product, repository, Pages, artifact, or documentation name.
 
 ## Safety and privacy invariants
 
-The rebrand does not change the current privacy boundary:
+The branding change does not change the current privacy boundary:
 
 - no ads or analytics SDKs;
 - fictional explorer identity rather than child real names;
