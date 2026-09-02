@@ -1,112 +1,130 @@
-# CurioVerse — Google Play Store Listing Pack
+# Euphoriks Quizzie — Google Play Store Listing Pack
 
-> Status: v1 preparation. This document is the source of truth for Play Store listing material. Do not advertise aspirational features that are not present in the release AAB.
+> Production preparation source of truth. Play Console itself is intentionally out of scope for this branch. Do not advertise aspirational features that are not present in the release AAB.
 
 ## App identity
 
-- **App name:** CurioVerse
-- **Tagline:** Learn • Play • Explore
+- **App name:** Euphoriks Quizzie
+- **Compact in-app lockup:** Quizzie · by Euphoriks
+- **Tagline:** Explore • Play • Learn
+- **Category:** Education
 - **Website:** https://tvc-ext.github.io/curioverse/
 - **Privacy policy:** https://tvc-ext.github.io/curioverse/privacy/
 - **Support:** https://tvc-ext.github.io/curioverse/support/
+- **Technical continuity:** existing Android package/application identity remains unchanged
 
-## Proposed short description
+## Final short description
 
-Play, solve, discover and explore a colorful universe made for curious minds.
+Fun learning worlds, quizzes and discovery games for curious kids.
 
-## Proposed full description
+## Final full description
 
-CurioVerse turns screen time into a colorful journey of discovery.
+**Euphoriks Quizzie** is a colourful learning adventure for curious kids who enjoy exploring, solving and discovering through play.
 
-Explore learning worlds, take on brain challenges, answer quizzes and discover fascinating ideas through playful, visual experiences designed to encourage curiosity and thinking.
+Travel through bite-sized learning experiences, take on quizzes and brain challenges, explore visual topics and build curiosity across science, history and the world around us.
 
-### Explore and discover
+### Explore learning worlds
 
-Travel through bite-sized learning experiences covering interesting ideas from science, history and the world around us.
+Discover playful learning experiences covering topics such as space, dinosaurs, oceans, AI concepts, history, animals and more.
 
 ### Challenge your brain
 
-Take on puzzles, patterns, quizzes and quick challenges that encourage reasoning, observation and problem solving.
+Take on quizzes, patterns, logic missions and quick challenges that encourage observation, reasoning and problem solving.
 
-### Learn through play
+### Discover with images
 
-CurioVerse mixes learning with game-like interactions, progress and rewards so exploring something new feels like an adventure.
+Quizzie includes an optional picture-scanner experience. Image labeling runs on-device in the current implementation, and a detected label can be used to request a public educational summary.
+
+### Progress through play
+
+Completed activities and curiosity energy are kept locally on the device so children can see their learning journey grow.
 
 ### Built with children in mind
 
-CurioVerse uses nickname-based profiles rather than requiring a child's real name. Current profile choices, preferences and progress are stored locally on the device. The current release does not contain advertising or analytics trackers.
+Quizzie uses fictional explorer aliases instead of requiring a child's real name. Current profile choices and progress are stored locally on the device. The current release has no advertising or analytics trackers and does not require an Euphoriks cloud account.
 
-Some learning experiences retrieve public educational information from external services. AI Vision performs image labeling on-device and may use the resulting detected label text for an educational lookup. See the CurioVerse Privacy Policy for precise current behavior.
+Some learning experiences retrieve public educational information from external services. See the Euphoriks Quizzie Privacy Policy for precise current behaviour.
 
-CurioVerse is growing. New learning worlds and activities will be added carefully while keeping curiosity, privacy and age-appropriate experiences at the center of the product.
+**Explore • Play • Learn**
 
 ## Screenshot plan
 
-Only screenshots captured from the release app should be used inside the device frame. Decorative backgrounds, branding and truthful captions may be added around them.
+Only screenshots rendered/captured from the release app may be submitted as phone screenshots. Decorative captions may be added around real UI if they do not obscure or materially alter it.
 
-Recommended sequence:
+Recommended truthful sequence:
 
-1. **Your Universe of Learning Adventures** — home / main adventure screen
-2. **Explore Fascinating Learning Worlds** — learning-world selection
-3. **Challenge Your Brain Through Play** — Brain Arcade
-4. **Discover Why the World Works** — visual educational discovery
-5. **Explore Science, History & More** — educational content
-6. **Solve Challenges. Build Thinking Skills.** — quiz or puzzle interaction
-7. **Explore Together** — use only if the selected release screenshot accurately represents the current Friends/Clubhouse implementation
-8. **Celebrate Your Progress** — use an actual progress/reward screen
+1. **Welcome to Quizzie** — onboarding / fictional explorer setup
+2. **Pick a Learning World** — home learning worlds
+3. **Explore a Learning Adventure** — topic/adventure screen
+4. **Challenge Your Brain** — Brain Arcade or pattern challenge
+5. **Quiz, Think, Discover** — real quiz interaction
+6. **Discover with Images** — actual picture-scanner screen, if included in the submitted release
+7. **Explorer Clubhouse** — only with caption clearly describing the current device-only fictional team experience
+8. **Keep Your Progress Local** — actual progress/energy UI available in the release
 
-Do not use generated or concept-only UI as a Play Store screenshot.
+Do not use generated concept UI or claim real child-to-child networking, cloud sync, AI generation, purchases, or functionality absent from the submitted build.
 
 ## Feature graphic
 
-Required working size: **1024 × 500 px**.
+Required output: **1024 × 500 PNG/JPEG**.
 
-Visual direction:
+Source in this repository: `graphics/feature-graphic-1024x500.svg`.
 
-- CurioVerse logo / owl identity
-- colorful purple/blue/yellow learning-universe aesthetic
-- tagline: **Learn • Play • Explore**
-- playful educational motifs such as stars, planets, puzzle shapes, books or science elements
+Visual rules:
+
+- Euphoriks Quizzie brand lockup
+- purple/indigo learning-universe aesthetic
+- tagline: **Explore • Play • Learn**
+- decorative educational motifs only
 - no fake phone UI
-- no claims about functionality that cannot be demonstrated in the release build
+- no claims that cannot be demonstrated in the release
 
 ## App icon
 
-Prepare a **512 × 512 PNG** from the real CurioVerse application identity. Do not substitute an unrelated generated mascot.
+Required output: **512 × 512 PNG/JPEG**, ≤1 MB for Play listing.
+
+Source in this repository: `graphics/app-icon-512.svg`.
+
+The icon uses the new Quizzie identity rather than the historical CurioVerse logo. The Android release workflow also injects a rebranded launcher drawable while preserving the existing application identity.
+
+## Store asset generation
+
+Run the dedicated **Store Listing Assets** GitHub Actions workflow or use `scripts/render-store-assets.sh` on a Linux machine with `librsvg2-bin` installed.
+
+Expected generated files:
+
+- `euphoriks-quizzie-app-icon-512.png`
+- `euphoriks-quizzie-feature-graphic-1024x500.png`
+
+Phone screenshots are intentionally generated from real Flutter UI separately; concept/mock UI is not accepted as the source of truth.
 
 ## Claims guardrail
-
-Before publishing, verify every marketing statement against the exact AAB being uploaded.
 
 Avoid absolute or unverified claims such as:
 
 - "100% child-safe"
-- "works offline" unless the described experience is actually offline-capable
-- "private friends" or real-time social functionality unless implemented in the release
+- "fully offline" or "works offline everywhere"
+- "private friends" or real-time child social functionality
 - claims that no third-party network data is transmitted
 - features shown only in concept artwork
+- AI-generated content claims not implemented in the submitted release
 
-## Play Console checklist
+## Pre-production checklist
 
-- [ ] Signed production AAB
-- [ ] 512 × 512 app icon
-- [ ] 1024 × 500 feature graphic
-- [ ] Final phone screenshot set
+- [ ] Rebrand PR merged with green checks
+- [ ] New signed AAB built with a version code greater than the current Play upload
+- [ ] Existing package/application identity verified unchanged
+- [ ] Launcher label displays **Euphoriks Quizzie**
+- [ ] Splash displays **Quizzie · by Euphoriks**
+- [ ] 512 × 512 app icon rendered and reviewed
+- [ ] 1024 × 500 feature graphic rendered and reviewed
+- [ ] 2–8 phone screenshots captured from actual release UI
 - [ ] Store listing text reviewed against current build
-- [ ] Privacy policy URL
-- [ ] Support / website URL
-- [ ] Target audience and Families declarations
-- [ ] Data Safety declaration based on current code and dependencies
-- [ ] Ads declaration
-- [ ] App access declaration
-- [ ] Content rating questionnaire
-- [ ] Internal testing release
-- [ ] Real-device smoke test of Play-distributed build
+- [ ] Privacy/support website deployed with Euphoriks Quizzie branding
+- [ ] Merged release manifest audit reviewed
+- [ ] Real-device update smoke test performed
+- [ ] Play Console changes performed only after the repository/release is approved
 
-## v1 release notes draft
+## Rebranded release notes draft
 
-Welcome to the first CurioVerse release! Explore colorful learning experiences, brain challenges, quizzes and visual discoveries built for curious minds.
-
-## Future vision
-
-Concept artwork may be retained separately as product inspiration, but it must not be submitted as evidence of functionality in the current Google Play listing.
+Meet **Euphoriks Quizzie** — the next chapter of the learning app previously known as CurioVerse. Explore learning worlds, brain challenges, quizzes and visual discoveries with refreshed Quizzie branding while keeping the same app update path and local learning progress.
