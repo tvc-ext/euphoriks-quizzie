@@ -27,6 +27,11 @@ Future<void> main() async {
   );
 }
 
+/// Public product branding is Euphoriks Quizzie.
+///
+/// The legacy widget class name is intentionally retained for source and test
+/// compatibility while the Google Play package/application identity remains
+/// unchanged during the rebrand.
 class CurioVerseApp extends StatefulWidget {
   const CurioVerseApp({
     required this.profileStore,
@@ -83,7 +88,7 @@ class _CurioVerseAppState extends State<CurioVerseApp> {
   Widget build(BuildContext context) {
     const seed = Color(0xFF6750E8);
     return MaterialApp(
-      title: 'CurioVerse',
+      title: 'Euphoriks Quizzie',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(
@@ -107,12 +112,12 @@ class _CurioVerseAppState extends State<CurioVerseApp> {
           : profile == null
               ? OnboardingScreen(onComplete: completeOnboarding)
               : UniverseShell(
-              profile: profile!,
-              progress: progress,
-              knowledgeSource: knowledgeSource,
-              onTopicCompleted: completeTopic,
-              onResetProfile: resetProfile,
-            ),
+                  profile: profile!,
+                  progress: progress,
+                  knowledgeSource: knowledgeSource,
+                  onTopicCompleted: completeTopic,
+                  onResetProfile: resetProfile,
+                ),
     );
   }
 }
@@ -206,9 +211,18 @@ class _UniverseShellState extends State<UniverseShell> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          'CurioVerse',
-          style: TextStyle(fontWeight: FontWeight.w800),
+        title: const Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              'Quizzie',
+              style: TextStyle(fontWeight: FontWeight.w900, height: 1),
+            ),
+            Text(
+              'by Euphoriks',
+              style: TextStyle(fontSize: 10, fontWeight: FontWeight.w700),
+            ),
+          ],
         ),
         actions: [
           PopupMenuButton<String>(
