@@ -34,6 +34,7 @@ void main() {
       await tester.pumpWidget(
         captureBoundary(
           CurioVerseApp(
+            key: const ValueKey('store-onboarding-app'),
             showSplash: false,
             profileStore: MemoryProfileStore(),
           ),
@@ -52,6 +53,7 @@ void main() {
       await tester.pumpWidget(
         captureBoundary(
           CurioVerseApp(
+            key: const ValueKey('store-home-app'),
             showSplash: false,
             profileStore: MemoryProfileStore(profile),
             initialProfile: profile,
@@ -59,6 +61,7 @@ void main() {
         ),
       );
       await tester.pumpAndSettle();
+      expect(find.byType(NavigationBar), findsOneWidget);
       await expectLater(
         find.byKey(const ValueKey('store-capture')),
         matchesGoldenFile('goldens/store/02-home-learning-worlds.png'),
