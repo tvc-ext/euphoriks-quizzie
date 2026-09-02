@@ -58,14 +58,14 @@ void main() {
         matchesGoldenFile('goldens/store/02-home-learning-worlds.png'),
       );
 
-      await tester.tap(find.byIcon(Icons.explore_outlined));
+      await tester.tap(find.text('Explore'));
       await tester.pumpAndSettle();
       await expectLater(
         find.byKey(const ValueKey('store-capture')),
         matchesGoldenFile('goldens/store/03-learning-adventures.png'),
       );
 
-      await tester.tap(find.byIcon(Icons.sports_esports_outlined));
+      await tester.tap(find.text('Games'));
       await tester.pumpAndSettle();
       await expectLater(
         find.byKey(const ValueKey('store-capture')),
