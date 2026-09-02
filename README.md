@@ -3,12 +3,12 @@
 <p align="center">A child-friendly mobile learning adventure combining quizzes, brain games, visual discovery and curiosity-led exploration.</p>
 
 <p align="center">
-  <a href="https://tvc-ext.github.io/curioverse/">🌍 Website</a> ·
-  <a href="https://tvc-ext.github.io/curioverse/privacy/">🔐 Privacy</a> ·
-  <a href="https://tvc-ext.github.io/curioverse/support/">🛟 Support</a>
+  <a href="https://tvc-ext.github.io/euphoriks-quizzie/">🌍 Website</a> ·
+  <a href="https://tvc-ext.github.io/euphoriks-quizzie/privacy/">🔐 Privacy</a> ·
+  <a href="https://tvc-ext.github.io/euphoriks-quizzie/support/">🛟 Support</a>
 </p>
 
-> The repository and GitHub Pages path currently retain the historical `curioverse` slug so existing links, release setup and Google Play continuity are not disturbed. Public product branding is **Euphoriks Quizzie**.
+> Repository: **tvc-ext/euphoriks-quizzie**. The Android/Dart technical package identity remains unchanged to preserve Google Play update continuity.
 
 ## 🦉 Meet Quizzie
 
@@ -27,7 +27,7 @@
 
 Quizzie currently follows a **local-first** approach. It does not require an Euphoriks cloud account or a child's real name. Profile choices and progress are stored locally on the device. The current release has no advertising or analytics trackers.
 
-Some experiences retrieve public educational information from external services. Image labeling runs on-device; detected label text may then be used for a public educational lookup. See the [Privacy Policy](https://tvc-ext.github.io/curioverse/privacy/) for the precise current behaviour.
+Some experiences retrieve public educational information from external services. Image labeling runs on-device; detected label text may then be used for a public educational lookup. See the [Privacy Policy](https://tvc-ext.github.io/euphoriks-quizzie/privacy/) for the precise current behaviour.
 
 ## Product principles
 
@@ -41,7 +41,7 @@ Some experiences retrieve public educational information from external services.
 
 ## Release identity
 
-The public display name is **Euphoriks Quizzie**. The existing Android package/application identity and repository slug remain unchanged so the current Google Play closed-test history, signing setup and update path stay intact.
+The public display name is **Euphoriks Quizzie** and the GitHub repository is **tvc-ext/euphoriks-quizzie**. The existing Android package/application identity and Dart package/import prefix remain unchanged so the current Google Play closed-test history, signing setup and update path stay intact.
 
 ## Development
 
@@ -58,8 +58,8 @@ Changes to `main` should go through pull requests and follow [AGENTS.md](AGENTS.
 
 ## Public resources
 
-- [Euphoriks Quizzie Website](https://tvc-ext.github.io/curioverse/)
-- [Privacy Policy](https://tvc-ext.github.io/curioverse/privacy/)
-- [Support](https://tvc-ext.github.io/curioverse/support/)
+- [Euphoriks Quizzie Website](https://tvc-ext.github.io/euphoriks-quizzie/)
+- [Privacy Policy](https://tvc-ext.github.io/euphoriks-quizzie/privacy/)
+- [Support](https://tvc-ext.github.io/euphoriks-quizzie/support/)
 
 <p align="center">🦉 <strong>Quizzie by Euphoriks · Explore • Play • Learn</strong></p>
