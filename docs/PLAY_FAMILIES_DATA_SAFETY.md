@@ -19,7 +19,7 @@ The existing Play Console setup has been prepared for child audiences, including
 - Quizzie application code does not upload the selected photo to its educational content service in the current implementation.
 - Detected text labels can be sent to Wikipedia to retrieve public educational summaries.
 - Other learning experiences can retrieve public educational content such as Wikipedia/NASA resources and public GitHub-hosted content.
-- Public rebranding from CurioVerse to Euphoriks Quizzie does not itself add a new data flow.
+- The Euphoriks Quizzie branding change does not itself add a new data flow.
 
 ## Expected Android capabilities
 
@@ -46,12 +46,13 @@ Dependencies can merge additional manifest entries. The release workflow therefo
 | Local profile/progress storage | Yes |
 | Euphoriks cloud child account | No |
 
-## Rebrand continuity
+## Release continuity
 
 - Public/display name: **Euphoriks Quizzie**.
-- Existing repository/Dart package and Android package/application identity may retain the historical `curioverse` technical naming.
-- Existing signing-secret names may retain `CURIOVERSE_...` to avoid credential churn.
-- The rebrand must not create a new Play application ID unless a separate migration decision is explicitly made.
+- GitHub repository and Pages URLs use the Euphoriks Quizzie name.
+- Existing Dart package/import prefix and Android package/application identity remain unchanged for Google Play update continuity.
+- Existing signing-secret names may retain their current values to avoid credential churn.
+- The branding change must not create a new Play application ID unless a separate migration decision is explicitly made.
 
 ## Release gate
 
