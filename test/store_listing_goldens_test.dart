@@ -20,6 +20,12 @@ void main() {
         child: child,
       );
 
+  Future<void> selectDestination(WidgetTester tester, int index) async {
+    final navigationBar = tester.widget<NavigationBar>(find.byType(NavigationBar));
+    navigationBar.onDestinationSelected?.call(index);
+    await tester.pumpAndSettle();
+  }
+
   testWidgets(
     'render real Euphoriks Quizzie store screenshots',
     (tester) async {
@@ -58,15 +64,13 @@ void main() {
         matchesGoldenFile('goldens/store/02-home-learning-worlds.png'),
       );
 
-      await tester.tap(find.text('Explore'));
-      await tester.pumpAndSettle();
+      await selectDestination(tester, 1);
       await expectLater(
         find.byKey(const ValueKey('store-capture')),
         matchesGoldenFile('goldens/store/03-learning-adventures.png'),
       );
 
-      await tester.tap(find.text('Games'));
-      await tester.pumpAndSettle();
+      await selectDestination(tester, 2);
       await expectLater(
         find.byKey(const ValueKey('store-capture')),
         matchesGoldenFile('goldens/store/04-brain-arcade.png'),
