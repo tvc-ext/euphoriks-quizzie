@@ -1,75 +1,98 @@
 # Euphoriks Quizzie rebrand
 
-This branch prepares the public-facing rebrand from **CurioVerse** to **Euphoriks Quizzie** without changing the Android application/package identity used by the existing Google Play closed test.
+This branch implements the public-facing rebrand from **CurioVerse** to **Euphoriks Quizzie** without changing the Android application/package identity used by the existing Google Play closed test.
 
 ## Brand architecture
 
 - Master brand: **Euphoriks**
 - Product: **Quizzie**
-- Full store/app name: **Euphoriks Quizzie**
-- Suggested lockup: **QUIZZIE · by EUPHORIKS**
-- Positioning line: **Explore · Play · Learn**
+- Full display/store name: **Euphoriks Quizzie**
+- Compact child-facing lockup: **Quizzie · by Euphoriks**
+- Positioning line: **Explore • Play • Learn**
 
-## Release strategy
+## Implemented in this branch
 
-1. Keep the existing Google Play closed test and package/application ID intact.
-2. Prepare branding, documentation, website, privacy/support copy and store assets on this feature branch.
-3. Do not merge until the new brand and all generated assets are reviewed.
-4. Before production, upload a new signed AAB containing the new display branding and update the Play Store listing.
+### App UI
 
-## Store listing asset requirements
+- Material app title changed to `Euphoriks Quizzie`.
+- App bar uses `Quizzie` with `by Euphoriks`.
+- Splash uses the new Quizzie/Euphoriks lockup and removes the historical logo asset dependency.
+- Onboarding says `Welcome to Quizzie!` and `Enter Quizzie`.
+- Branding tests were updated.
 
-- App icon: 512 × 512 PNG, Play Store compliant.
-- Feature graphic: 1024 × 500 PNG/JPEG.
-- Phone screenshots: use actual current app UI; do not advertise unimplemented functionality.
-- Promo video: optional and can remain blank for initial production release.
+### Android release packaging
 
-## Store listing draft
+- Existing generated Android package/application identity remains unchanged.
+- Release workflow replaces the generated Android display label with `Euphoriks Quizzie`.
+- Release workflow injects a new Quizzie launcher drawable.
+- Existing `CURIOVERSE_...` signing-secret/variable names remain for credential/configuration continuity.
+- Tester APK/AAB artifact display names use `euphoriks-quizzie-*`.
+- Families-sensitive merged-manifest audit remains in place.
 
-### App name
+### Website and privacy
 
-Euphoriks Quizzie
+- Landing page, privacy page and support page use Euphoriks Quizzie branding.
+- Existing GitHub Pages URL remains under `/curioverse/` so configured links are not broken during the rebrand.
+- Privacy policy explicitly records the historical-name/technical-identifier continuity and confirms that the rebrand itself adds no new data flow.
+- Pages validation checks the new privacy wording and public brand.
 
-### Short description
+### Documentation
 
-Explore, play and learn through fun educational worlds made for curious kids.
+- README and contributor guidance use the new brand.
+- Product vision, architecture, roadmap, public-website notes, Play Families/Data Safety baseline and release guide are rebranded/refreshed.
+- Outdated claims such as a fully network-free prototype were removed; the docs distinguish local-first state from public educational network requests.
 
-### Full description
+### Store listing assets
 
-Euphoriks Quizzie is a colourful learning adventure designed to help children explore the world through play, discovery and curiosity.
+- Final app name, short description, full description, claims guardrails and screenshot plan are documented in `store-assets/PLAY_STORE_LISTING.md`.
+- `store-assets/graphics/app-icon-512.svg` is the source for the Play icon.
+- `store-assets/graphics/feature-graphic-1024x500.svg` is the source for the Play feature graphic.
+- `scripts/render-store-assets.sh` renders exact-size Play-compatible PNG files.
+- `.github/workflows/store-assets.yml` renders/validates those assets in CI and publishes them as the `euphoriks-quizzie-play-store-graphics` artifact.
+- Phone screenshots remain deliberately tied to real release UI. `store-assets/screenshots/README.md` defines the capture set instead of committing fake concept screens.
 
-Children can journey through exciting learning worlds covering topics such as space, animals, amazing places, history, science and more. Interactive quizzes, activities and challenges make learning engaging and rewarding.
+## Deliberately unchanged
 
-**Explore Learning Worlds**
-Discover fascinating facts and educational content across a growing collection of kid-friendly topics.
+The following are intentionally **not** renamed in this branch:
 
-**Play and Learn**
-Test knowledge with quizzes, puzzles and interactive activities designed to make learning enjoyable.
+- Google Play Console app/listing itself.
+- Android package/application ID.
+- Dart package name/import prefix (`curioverse`).
+- GitHub repository slug (`tvc-ext/curioverse`).
+- GitHub Pages path (`/curioverse/`).
+- Existing signing-secret names and upload key.
 
-**Discover with Images**
-Quizzie includes experiences that let children explore and learn about images using on-device technology.
-
-**Built with Children in Mind**
-Euphoriks Quizzie is designed as a child-friendly learning experience. It does not contain advertising and does not require children to create a Euphoriks cloud account.
-
-**Learning Beyond the Classroom**
-Quizzie encourages curiosity, exploration and independent learning, turning screen time into discovery time.
-
-Explore · Play · Learn.
+These technical identifiers are retained to preserve Play update continuity and avoid breaking existing configured URLs/credentials. They can be reconsidered separately only with an explicit migration plan.
 
 ## Safety and privacy invariants
 
-The rebrand must not alter the current privacy model merely for branding:
+The rebrand does not change the current privacy boundary:
 
-- no ads;
-- nickname/generated-alias identity rather than child real names;
+- no ads or analytics SDKs;
+- fictional explorer identity rather than child real names;
 - local profile/progress storage;
 - no public/free-form child-to-child chat;
-- camera/gallery only for the existing scanner experience;
+- camera/gallery only for the existing image-discovery experience;
 - on-device ML image labeling from application code;
 - external/public educational content may be retrieved over the network;
-- privacy and Data Safety statements must describe actual implementation rather than marketing intent.
+- privacy and Data Safety claims must describe actual implementation rather than branding intent.
+
+## Validation before merge
+
+- Android release PR workflow must pass `flutter analyze`, `flutter test`, and merged-manifest audit.
+- GitHub Pages validation must pass.
+- Store Listing Assets workflow must render 512×512 and 1024×500 PNGs inside Play size limits.
+- Review the rebranded UI and the generated graphics before merging.
+
+## After merge, before changing Play Console
+
+1. Run a new Android Release with an incremented Play version code.
+2. Install/test the rebranded APK on a real device, preferably as an update over the existing test install.
+3. Verify local progress survives an update installation.
+4. Review/download the generated Play graphic artifact.
+5. Capture real phone screenshots from the rebranded build.
+6. Upload the new AAB to the appropriate Play track and update Play Console branding/listing only when ready.
 
 ## Naming note
 
-This document is an engineering/branding plan, not legal trademark clearance. Similar-name and trademark review should be completed before public production launch.
+This document is an engineering/branding record, not legal trademark clearance. Similar-name and trademark review should be completed before public production launch.
