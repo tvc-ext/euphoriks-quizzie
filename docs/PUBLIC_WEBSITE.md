@@ -4,13 +4,13 @@ The static public website lives in `site/` and is designed for GitHub Pages.
 
 ## Public URLs
 
-The repository currently retains its historical `curioverse` slug, so the live URLs remain:
+The repository and GitHub Pages path now use the Euphoriks Quizzie name:
 
-- Website: `https://tvc-ext.github.io/curioverse/`
-- Privacy policy: `https://tvc-ext.github.io/curioverse/privacy/`
-- Support: `https://tvc-ext.github.io/curioverse/support/`
+- Website: `https://tvc-ext.github.io/euphoriks-quizzie/`
+- Privacy policy: `https://tvc-ext.github.io/euphoriks-quizzie/privacy/`
+- Support: `https://tvc-ext.github.io/euphoriks-quizzie/support/`
 
-The pages themselves use the public product brand **Euphoriks Quizzie**. Keeping the existing URLs during the rebrand avoids breaking the privacy-policy URL and other links already configured outside the repository.
+The pages use the public product brand **Euphoriks Quizzie**. External listings and documentation should use these current URLs.
 
 ## Static-site constraints
 
@@ -39,6 +39,6 @@ Privacy claims are based on the current Flutter implementation and must be reche
 - `lib/models/child_profile.dart`: identity uses a broad age band and fictional explorer avatar/alias.
 - `lib/screens/friends_clubhouse_screen.dart`: the current Clubhouse is device-only and fictional, not public child-to-child messaging.
 
-## Rebrand rule
+## Branding rule
 
-A name/visual rebrand must not be used to imply a privacy change. If accounts, cloud sync, analytics, advertising, real friend connections, public sharing or new SDK/network flows are introduced later, update the implementation review, privacy policy, Play declarations and this document before release.
+A name/visual change must not be used to imply a privacy change. If accounts, cloud sync, analytics, advertising, real friend connections, public sharing or new SDK/network flows are introduced later, update the implementation review, privacy policy, Play declarations and this document before release.
