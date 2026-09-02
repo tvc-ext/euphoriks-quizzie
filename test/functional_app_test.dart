@@ -13,7 +13,7 @@ void main() {
 
     final store = MemoryProfileStore();
     await tester.pumpWidget(
-      CurioVerseApp(showSplash: false, profileStore: store),
+      QuizzieApp(showSplash: false, profileStore: store),
     );
 
     expect(find.text('Welcome to Quizzie!'), findsOneWidget);
