@@ -1,5 +1,5 @@
 name: curioverse
-description: A safe, local-first learning universe for curious kids.
+description: Euphoriks Quizzie - a safe, local-first learning adventure for curious kids.
 publish_to: "none"
 version: 1.0.0+1
 
@@ -22,5 +22,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  assets:
-    - assets/curioverse_logo.webp

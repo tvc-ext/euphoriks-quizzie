@@ -12,18 +12,18 @@ void main() {
     addTearDown(tester.view.resetDevicePixelRatio);
 
     final store = MemoryProfileStore();
-    await tester.pumpWidget(CurioVerseApp(
-        showSplash: false,profileStore: store));
+    await tester.pumpWidget(
+      CurioVerseApp(showSplash: false, profileStore: store),
+    );
 
-    expect(find.text('Welcome to CurioVerse!'), findsOneWidget);
+    expect(find.text('Welcome to Quizzie!'), findsOneWidget);
 
     await tester.tap(find.text('9–11'));
     await tester.pump();
     await tester.tap(find.text('Nova Fox'));
     await tester.pump();
 
-    final continueFinder =
-        find.widgetWithText(FilledButton, 'Enter CurioVerse');
+    final continueFinder = find.widgetWithText(FilledButton, 'Enter Quizzie');
     expect(tester.widget<FilledButton>(continueFinder).onPressed, isNotNull);
     await tester.tap(continueFinder);
     await tester.pumpAndSettle();
@@ -42,7 +42,7 @@ void main() {
     await tester.tap(find.text('Change explorer'));
     await tester.pumpAndSettle();
 
-    expect(find.text('Welcome to CurioVerse!'), findsOneWidget);
+    expect(find.text('Welcome to Quizzie!'), findsOneWidget);
     expect(store.profile, isNull);
   });
 }

@@ -1,13 +1,6 @@
-<p align="center">
-  <img src="assets/curioverse_logo.webp" alt="CurioVerse logo" width="190" />
-</p>
-
-<h1 align="center">CurioVerse</h1>
-<p align="center"><strong>Learn • Play • Explore</strong></p>
-
-<p align="center">
-  A child-friendly mobile learning universe combining games, quizzes, visual discovery, creativity and AI-assisted exploration.
-</p>
+<h1 align="center">Euphoriks Quizzie</h1>
+<p align="center"><strong>Explore • Play • Learn</strong></p>
+<p align="center">A child-friendly mobile learning adventure combining quizzes, brain games, visual discovery and curiosity-led exploration.</p>
 
 <p align="center">
   <a href="https://tvc-ext.github.io/curioverse/">🌍 Website</a> ·
@@ -15,59 +8,58 @@
   <a href="https://tvc-ext.github.io/curioverse/support/">🛟 Support</a>
 </p>
 
-## 🌌 Explore CurioVerse
+> The repository and GitHub Pages path currently retain the historical `curioverse` slug so existing links, release setup and Google Play continuity are not disturbed. Public product branding is **Euphoriks Quizzie**.
 
-CurioVerse is being built as a different kind of screen time: short, playful experiences that encourage children to think, discover, solve and create.
+## 🦉 Meet Quizzie
 
-### Learning worlds
+**Quizzie by Euphoriks** turns screen time into short, playful experiences that encourage children to think, discover, solve and create.
+
+### Learning experiences
 
 - 🧠 **Brain Arcade** — puzzles, patterns and reasoning challenges
 - 🔭 **Learning Adventures** — visual knowledge and curiosity-led exploration
-- 🎮 **Games & Quizzes** — learning wrapped in quick interactive challenges
-- 📷 **AI Vision** — explore objects using on-device image labeling and educational lookups
-- 🤝 **Friends Clubhouse** — privacy-conscious social concepts designed around nicknames rather than real names
-- ⭐ **Progress & Rewards** — local progress that makes learning feel like an adventure
+- 🎮 **Games & Quizzes** — quick interactive learning challenges
+- 📷 **Image Discovery** — on-device image labeling followed by optional educational lookups
+- 🤝 **Explorer Clubhouse** — a device-only fictional crew experience, not public child-to-child chat
+- ⭐ **Progress & Rewards** — local progress and curiosity energy
 
 ## 🛡️ Designed with children in mind
 
-CurioVerse currently follows a **local-first** approach. It does not require a CurioVerse cloud account or a child's real name. Profile choices, preferences and progress are stored locally on the device. The current release has no advertising or analytics trackers.
+Quizzie currently follows a **local-first** approach. It does not require an Euphoriks cloud account or a child's real name. Profile choices and progress are stored locally on the device. The current release has no advertising or analytics trackers.
 
-Some experiences retrieve public educational information from external services. The AI Vision experience performs image labeling on-device; detected label text may then be used for an educational lookup. See the [Privacy Policy](https://tvc-ext.github.io/curioverse/privacy/) for the precise current behavior.
+Some experiences retrieve public educational information from external services. Image labeling runs on-device; detected label text may then be used for a public educational lookup. See the [Privacy Policy](https://tvc-ext.github.io/curioverse/privacy/) for the precise current behaviour.
 
-## ✨ Product principles
+## Product principles
 
 - Fun before instruction
-- Age-band appropriate content
+- Broad age-band appropriate content
 - No real names in the child-facing experience
-- Local-first data for the initial release
+- Local-first profile and progress data
 - No ads or manipulative engagement loops
-- Parent-controlled direction for social features
+- No public/free-form child chat in the current release
 - Small, replayable learning activities
 
-## 📱 Current status
+## Release identity
 
-CurioVerse is under active development and is being prepared for Google Play testing and release. Android release builds are validated through GitHub Actions, with Play upload-signing credentials kept in GitHub Secrets rather than source control.
+The public display name is **Euphoriks Quizzie**. The existing Android package/application identity and repository slug remain unchanged so the current Google Play closed-test history, signing setup and update path stay intact.
 
-See [docs/ROADMAP.md](docs/ROADMAP.md) for the delivery plan and [docs/PRODUCT_VISION.md](docs/PRODUCT_VISION.md) for the product direction.
+## Development
 
-## 🧑‍💻 Development
-
-CurioVerse is built with Flutter. Flutter 3.24+ and Dart 3.5+ are recommended.
+Quizzie is built with Flutter. Flutter 3.24+ and Dart 3.5+ are recommended.
 
 ```bash
 flutter pub get
-flutter run
+flutter analyze
 flutter test
+flutter run
 ```
 
-Changes to `main` should go through pull requests and follow the repository guidance in [AGENTS.md](AGENTS.md).
+Changes to `main` should go through pull requests and follow [AGENTS.md](AGENTS.md).
 
-## 🔗 Public resources
+## Public resources
 
-- [CurioVerse Website](https://tvc-ext.github.io/curioverse/)
+- [Euphoriks Quizzie Website](https://tvc-ext.github.io/curioverse/)
 - [Privacy Policy](https://tvc-ext.github.io/curioverse/privacy/)
 - [Support](https://tvc-ext.github.io/curioverse/support/)
 
----
-
-<p align="center">🦉 <strong>Built for curious minds.</strong></p>
+<p align="center">🦉 <strong>Quizzie by Euphoriks · Explore • Play • Learn</strong></p>

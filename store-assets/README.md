@@ -1,33 +1,42 @@
-# CurioVerse Store Assets
+# Euphoriks Quizzie Store Assets
 
-This directory contains the source-of-truth material used to prepare CurioVerse for Google Play.
+This directory contains the source-of-truth material used to prepare **Euphoriks Quizzie** for Google Play. Play Console changes themselves are intentionally outside this branch.
 
-## Intended structure
+## Structure
 
 ```text
 store-assets/
 ├── PLAY_STORE_LISTING.md
-├── icon/
-│   └── icon-512.png
-├── feature-graphic/
-│   └── feature-graphic-1024x500.png
+├── README.md
+├── graphics/
+│   ├── app-icon-512.svg
+│   └── feature-graphic-1024x500.svg
 └── screenshots/
-    ├── 01-learning-adventures.png
-    ├── 02-learning-worlds.png
-    ├── 03-brain-arcade.png
-    ├── 04-discovery.png
-    ├── 05-science-history.png
-    ├── 06-challenge.png
-    ├── 07-together.png
-    └── 08-progress.png
+    └── README.md
 ```
 
-The image files above are added only after final production-ready assets are created. Do not commit concept mockups as Play Store submission assets.
+A dedicated GitHub Actions workflow renders the SVG graphic sources to Play-compatible PNG files and uploads them as a workflow artifact.
+
+## Required Play graphics
+
+- **App icon:** 512 × 512 PNG/JPEG, ≤1 MB.
+- **Feature graphic:** 1024 × 500 PNG/JPEG, ≤15 MB.
+- **Phone screenshots:** 2–8 PNG/JPEG images captured from the actual release UI.
 
 ## Rules
 
-1. Screenshots must originate from the actual release app.
-2. Decorative framing and captions must not obscure or materially alter the app UI.
+1. Screenshots must originate from the actual release app, not generated concept UI.
+2. Decorative framing/captions must not obscure or materially alter the app UI.
 3. Captions must describe functionality available in the submitted release.
-4. Generated concept artwork belongs to product vision, not the current store listing.
-5. Review `PLAY_STORE_LISTING.md` before every Play submission.
+4. The feature graphic can be illustrative, but must not imply unavailable features.
+5. Keep the existing Android package/application identity unchanged during this rebrand.
+6. Review `PLAY_STORE_LISTING.md` and the current privacy policy before every Play submission.
+
+## Brand lockup
+
+- Product: **Quizzie**
+- Master brand: **Euphoriks**
+- Full display name: **Euphoriks Quizzie**
+- Tagline: **Explore • Play • Learn**
+
+The historical `curioverse` repository/technical naming remains where required for continuity; public-facing assets use Euphoriks Quizzie.

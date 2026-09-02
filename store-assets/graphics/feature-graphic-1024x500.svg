@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="500" viewBox="0 0 1024 500" role="img" aria-labelledby="title desc">
+  <title id="title">Euphoriks Quizzie feature graphic</title>
+  <desc id="desc">A colourful learning-universe banner with the Euphoriks Quizzie brand and truthful learning motifs.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#181044"/>
+      <stop offset=".48" stop-color="#34257e"/>
+      <stop offset="1" stop-color="#5233a9"/>
+    </linearGradient>
+    <linearGradient id="quiz" x1="0" x2="1">
+      <stop stop-color="#ffcb42"/>
+      <stop offset=".35" stop-color="#ff7b54"/>
+      <stop offset=".67" stop-color="#7fd7ff"/>
+      <stop offset="1" stop-color="#9be24c"/>
+    </linearGradient>
+  </defs>
+  <rect width="1024" height="500" rx="34" fill="url(#bg)"/>
+  <circle cx="78" cy="78" r="33" fill="#65d9ff" opacity=".82"/>
+  <circle cx="78" cy="78" r="24" fill="#4aa8d8" opacity=".45"/>
+  <ellipse cx="904" cy="98" rx="56" ry="20" fill="#d2b7ff" opacity=".7" transform="rotate(-12 904 98)"/>
+  <circle cx="904" cy="98" r="28" fill="#8c6bdc"/>
+  <path d="M134 146l8 18 19 8-19 8-8 19-8-19-18-8 18-8z" fill="#ffcb67"/>
+  <path d="M850 196l6 13 14 6-14 6-6 14-6-14-14-6 14-6z" fill="#65d9ff"/>
+  <circle cx="179" cy="68" r="5" fill="#fff"/><circle cx="754" cy="63" r="5" fill="#fff"/><circle cx="958" cy="234" r="5" fill="#ffcb67"/>
+
+  <g transform="translate(82 188)">
+    <path d="M56 62c8-34 35-50 59-30 24-20 51-4 59 30l-6 83c-13 44-39 62-53 62s-40-18-53-62z" fill="#8468db"/>
+    <circle cx="91" cy="94" r="34" fill="#fff"/><circle cx="139" cy="94" r="34" fill="#fff"/>
+    <circle cx="94" cy="97" r="14" fill="#21194f"/><circle cx="136" cy="97" r="14" fill="#21194f"/>
+    <circle cx="89" cy="91" r="5" fill="#fff"/><circle cx="131" cy="91" r="5" fill="#fff"/>
+    <path d="M106 119h18l-9 15z" fill="#ffcb67"/>
+    <path d="M46 157c30-8 53-2 69 14v39c-21-12-44-18-69-14z" fill="#ffcb67"/>
+    <path d="M184 157c-30-8-53-2-69 14v39c21-12 44-18 69-14z" fill="#f8f4ff"/>
+  </g>
+
+  <g transform="translate(300 100)">
+    <text x="0" y="54" fill="#ffffff" font-family="Arial,Helvetica,sans-serif" font-size="42" font-weight="800" letter-spacing="4">EUPHORIKS</text>
+    <text x="0" y="132" fill="url(#quiz)" font-family="Arial,Helvetica,sans-serif" font-size="82" font-weight="900" letter-spacing="2">QUIZZIE</text>
+    <rect x="3" y="156" width="378" height="54" rx="27" fill="#ffcb67"/>
+    <text x="192" y="191" text-anchor="middle" fill="#2d2475" font-family="Arial,Helvetica,sans-serif" font-size="26" font-weight="800">Explore • Play • Learn</text>
+    <text x="3" y="246" fill="#e9e5ff" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="600">Learning worlds · quizzes · brain challenges</text>
+    <text x="3" y="279" fill="#e9e5ff" font-family="Arial,Helvetica,sans-serif" font-size="21" font-weight="600">and image discovery for curious kids</text>
+  </g>
+
+  <g transform="translate(760 300)">
+    <rect x="0" y="0" width="178" height="100" rx="24" fill="#ffffff" opacity=".95"/>
+    <circle cx="34" cy="32" r="14" fill="#6750e8"/><path d="M28 32h12M34 26v12" stroke="#fff" stroke-width="4" stroke-linecap="round"/>
+    <text x="58" y="38" fill="#261d5a" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="800">Learn</text>
+    <circle cx="34" cy="70" r="14" fill="#ffcb67"/><path d="M28 70h12" stroke="#2d2475" stroke-width="4" stroke-linecap="round"/>
+    <text x="58" y="76" fill="#261d5a" font-family="Arial,Helvetica,sans-serif" font-size="17" font-weight="800">Play</text>
+  </g>
+
+  <path d="M0 430c130-70 255-46 366 15 120 65 252 75 390 3 93-49 183-54 268-10v62H0z" fill="#18264f" opacity=".68"/>
+</svg>

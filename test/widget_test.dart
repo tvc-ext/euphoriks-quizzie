@@ -16,10 +16,12 @@ void main() {
     useTallPhoneSurface(tester);
     final store = MemoryProfileStore();
 
-    await tester.pumpWidget(CurioVerseApp(
-        showSplash: false,profileStore: store));
+    await tester.pumpWidget(
+      CurioVerseApp(showSplash: false, profileStore: store),
+    );
 
-    expect(find.text('Welcome to CurioVerse!'), findsOneWidget);
+    expect(find.text('Welcome to Quizzie!'), findsOneWidget);
+    expect(find.text('by Euphoriks'), findsOneWidget);
     expect(
       find.textContaining('We never need your real name or exact age.'),
       findsOneWidget,
@@ -30,12 +32,12 @@ void main() {
     await tester.ensureVisible(find.text('Nova Fox'));
     await tester.tap(find.text('Nova Fox'));
     await tester.pump();
-    await tester.ensureVisible(find.text('Enter CurioVerse'));
+    await tester.ensureVisible(find.text('Enter Quizzie'));
     final continueButton = tester.widget<FilledButton>(
-      find.widgetWithText(FilledButton, 'Enter CurioVerse'),
+      find.widgetWithText(FilledButton, 'Enter Quizzie'),
     );
     expect(continueButton.onPressed, isNotNull);
-    await tester.tap(find.widgetWithText(FilledButton, 'Enter CurioVerse'));
+    await tester.tap(find.widgetWithText(FilledButton, 'Enter Quizzie'));
     await tester.pumpAndSettle();
 
     expect(find.text('Hello, Nova Fox!'), findsOneWidget);
@@ -59,7 +61,7 @@ void main() {
     );
 
     expect(find.text('Hello, Astro Owl!'), findsOneWidget);
-    expect(find.text('Welcome to CurioVerse!'), findsNothing);
+    expect(find.text('Welcome to Quizzie!'), findsNothing);
     expect(find.text('Friends'), findsOneWidget);
   });
 
@@ -67,25 +69,27 @@ void main() {
       (tester) async {
     useTallPhoneSurface(tester);
     await tester.pumpWidget(
-      CurioVerseApp(
-        showSplash: false,profileStore: MemoryProfileStore()),
+      CurioVerseApp(showSplash: false, profileStore: MemoryProfileStore()),
     );
 
-    FilledButton button =
-        tester.widget<FilledButton>(find.widgetWithText(FilledButton, 'Enter CurioVerse'));
+    FilledButton button = tester.widget<FilledButton>(
+      find.widgetWithText(FilledButton, 'Enter Quizzie'),
+    );
     expect(button.onPressed, isNull);
 
     await tester.tap(find.text('9–11'));
     await tester.pump();
-    button =
-        tester.widget<FilledButton>(find.widgetWithText(FilledButton, 'Enter CurioVerse'));
+    button = tester.widget<FilledButton>(
+      find.widgetWithText(FilledButton, 'Enter Quizzie'),
+    );
     expect(button.onPressed, isNull);
 
     await tester.ensureVisible(find.text('Nova Fox'));
     await tester.tap(find.text('Nova Fox'));
     await tester.pump();
-    button =
-        tester.widget<FilledButton>(find.widgetWithText(FilledButton, 'Enter CurioVerse'));
+    button = tester.widget<FilledButton>(
+      find.widgetWithText(FilledButton, 'Enter Quizzie'),
+    );
     expect(button.onPressed, isNotNull);
   });
 }

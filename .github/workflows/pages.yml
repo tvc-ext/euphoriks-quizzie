@@ -47,14 +47,25 @@ jobs:
       - name: Validate privacy coverage
         run: |
           grep -qi "broad age band" site/privacy/index.html
-          grep -qi "shared preferences" site/privacy/index.html
+          grep -qi "Shared Preferences" site/privacy/index.html
           grep -qi "Google ML Kit" site/privacy/index.html
           grep -qi "Wikipedia" site/privacy/index.html
           grep -qi "NASA" site/privacy/index.html
           grep -qi "GitHub-hosted" site/privacy/index.html
-          grep -qi "no CurioVerse account" site/privacy/index.html
+          grep -qi "no Euphoriks account system" site/privacy/index.html
           grep -qi "no ads" site/privacy/index.html
           grep -qi "should not be described as transmitting no third-party network data" site/privacy/index.html
+          grep -qi "previously named CurioVerse" site/privacy/index.html
+
+      - name: Validate public branding
+        run: |
+          grep -qi "Euphoriks Quizzie" site/index.html
+          grep -qi "Quizzie" site/support/index.html
+          grep -qi "Euphoriks Quizzie" site/privacy/index.html
+          if grep -qi '<title>CurioVerse' site/index.html site/privacy/index.html site/support/index.html; then
+            echo "Legacy CurioVerse title found in public website."
+            exit 1
+          fi
 
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'

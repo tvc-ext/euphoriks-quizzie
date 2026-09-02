@@ -1,0 +1,89 @@
+name: Store Phone Screenshots
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "lib/**"
+      - "test/store_listing_goldens_test.dart"
+      - ".github/workflows/store-screenshots.yml"
+  push:
+    branches: [main]
+    paths:
+      - "lib/**"
+      - "test/store_listing_goldens_test.dart"
+      - ".github/workflows/store-screenshots.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  screenshots:
+    name: Render real release UI screenshots
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Set up Flutter
+        uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      - name: Install dependencies
+        run: flutter pub get
+
+      - name: Render store screenshot goldens
+        run: |
+          flutter test \
+            --update-goldens \
+            --dart-define=GENERATE_STORE_GOLDENS=true \
+            test/store_listing_goldens_test.dart
+
+      - name: Validate generated screenshots
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          import struct
+
+          root = Path('test/goldens/store')
+          expected = [
+              '01-welcome-to-quizzie.png',
+              '02-home-learning-worlds.png',
+              '03-learning-adventures.png',
+              '04-brain-arcade.png',
+          ]
+          for name in expected:
+              path = root / name
+              if not path.exists():
+                  raise SystemExit(f'Missing screenshot: {path}')
+              data = path.read_bytes()[:24]
+              if data[:8] != b'\x89PNG\r\n\x1a\n':
+                  raise SystemExit(f'Not a PNG: {path}')
+              width, height = struct.unpack('>II', data[16:24])
+              if width < 320 or height < 320 or width > 3840 or height > 3840:
+                  raise SystemExit(f'Play dimension range violation: {name} {width}x{height}')
+              if width >= height:
+                  raise SystemExit(f'Expected portrait screenshot: {name} {width}x{height}')
+              print(f'OK {name}: {width}x{height}')
+          PY
+
+      - name: Upload real UI screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: euphoriks-quizzie-phone-screenshots
+          path: test/goldens/store/*.png
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Summary
+        run: |
+          echo "## Euphoriks Quizzie phone screenshots" >> "$GITHUB_STEP_SUMMARY"
+          echo "Generated from Flutter widget rendering, not concept/mock UI." >> "$GITHUB_STEP_SUMMARY"
+          echo "- Welcome/onboarding" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Home learning worlds" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Learning Adventures" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Brain Arcade" >> "$GITHUB_STEP_SUMMARY"

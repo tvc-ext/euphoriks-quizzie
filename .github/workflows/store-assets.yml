@@ -1,0 +1,59 @@
+name: Store Listing Assets
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - "store-assets/**"
+      - "scripts/render-store-assets.sh"
+      - ".github/workflows/store-assets.yml"
+  push:
+    branches: [main]
+    paths:
+      - "store-assets/**"
+      - "scripts/render-store-assets.sh"
+      - ".github/workflows/store-assets.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  render:
+    name: Render Play listing graphics
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out source
+        uses: actions/checkout@v4
+
+      - name: Install SVG renderer
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends librsvg2-bin
+
+      - name: Render and validate assets
+        run: bash scripts/render-store-assets.sh
+
+      - name: Check Play size limits
+        run: |
+          icon="build/store-assets/euphoriks-quizzie-app-icon-512.png"
+          feature="build/store-assets/euphoriks-quizzie-feature-graphic-1024x500.png"
+          test "$(stat -c%s "$icon")" -le 1048576
+          test "$(stat -c%s "$feature")" -le 15728640
+
+      - name: Upload Play-ready graphics
+        uses: actions/upload-artifact@v4
+        with:
+          name: euphoriks-quizzie-play-store-graphics
+          path: |
+            build/store-assets/euphoriks-quizzie-app-icon-512.png
+            build/store-assets/euphoriks-quizzie-feature-graphic-1024x500.png
+          if-no-files-found: error
+          retention-days: 30
+
+      - name: Summary
+        run: |
+          echo "## Euphoriks Quizzie Store Assets" >> "$GITHUB_STEP_SUMMARY"
+          echo "- App icon: 512×512 PNG" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Feature graphic: 1024×500 PNG" >> "$GITHUB_STEP_SUMMARY"
+          echo "- Phone screenshots must still come from the actual rebranded release UI" >> "$GITHUB_STEP_SUMMARY"

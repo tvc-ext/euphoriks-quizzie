@@ -80,25 +80,44 @@ class _CurioVerseSplashScreenState extends State<CurioVerseSplashScreen>
                   children: [
                     ScaleTransition(
                       scale: scale,
-                      child: Image.asset(
-                        'assets/curioverse_logo.webp',
-                        width: 230,
-                        height: 230,
+                      child: Container(
+                        width: 190,
+                        height: 190,
+                        decoration: BoxDecoration(
+                          color: const Color(0xFF3A2A8D),
+                          borderRadius: BorderRadius.circular(54),
+                          border: Border.all(color: const Color(0xFFFFCB67), width: 4),
+                          boxShadow: const [
+                            BoxShadow(color: Color(0x55000000), blurRadius: 24, offset: Offset(0, 12)),
+                          ],
+                        ),
+                        alignment: Alignment.center,
+                        child: const Text('🦉', style: TextStyle(fontSize: 104)),
                       ),
                     ),
-                    const SizedBox(height: 18),
+                    const SizedBox(height: 22),
                     const Text(
-                      'CurioVerse',
+                      'QUIZZIE',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 40,
+                        fontSize: 44,
                         fontWeight: FontWeight.w900,
-                        letterSpacing: 0.5,
+                        letterSpacing: 1.2,
                       ),
                     ),
-                    const SizedBox(height: 8),
+                    const SizedBox(height: 5),
                     const Text(
-                      'Big curiosity. Brilliant adventures.',
+                      'by EUPHORIKS',
+                      style: TextStyle(
+                        color: Color(0xFFFFCB67),
+                        fontSize: 14,
+                        fontWeight: FontWeight.w800,
+                        letterSpacing: 2,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    const Text(
+                      'Explore • Play • Learn',
                       style: TextStyle(
                         color: Color(0xFFDCD8FF),
                         fontSize: 16,
