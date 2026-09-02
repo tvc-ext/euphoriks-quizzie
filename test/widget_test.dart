@@ -17,7 +17,7 @@ void main() {
     final store = MemoryProfileStore();
 
     await tester.pumpWidget(
-      CurioVerseApp(showSplash: false, profileStore: store),
+      QuizzieApp(showSplash: false, profileStore: store),
     );
 
     expect(find.text('Welcome to Quizzie!'), findsOneWidget);
@@ -53,7 +53,7 @@ void main() {
     );
 
     await tester.pumpWidget(
-      CurioVerseApp(
+      QuizzieApp(
         showSplash: false,
         profileStore: MemoryProfileStore(profile),
         initialProfile: profile,
@@ -69,7 +69,7 @@ void main() {
       (tester) async {
     useTallPhoneSurface(tester);
     await tester.pumpWidget(
-      CurioVerseApp(showSplash: false, profileStore: MemoryProfileStore()),
+      QuizzieApp(showSplash: false, profileStore: MemoryProfileStore()),
     );
 
     FilledButton button = tester.widget<FilledButton>(
