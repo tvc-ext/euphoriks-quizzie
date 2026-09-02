@@ -38,15 +38,24 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         child: ListView(
           padding: const EdgeInsets.fromLTRB(24, 28, 24, 32),
           children: [
-            const Text('✨', style: TextStyle(fontSize: 42)),
+            const Text('🦉✨', style: TextStyle(fontSize: 42)),
             const SizedBox(height: 12),
             Text(
-              'Welcome to CurioVerse!',
+              'Welcome to Quizzie!',
               style: Theme.of(context).textTheme.headlineMedium?.copyWith(
                     fontWeight: FontWeight.w900,
                   ),
             ),
-            const SizedBox(height: 8),
+            const SizedBox(height: 4),
+            const Text(
+              'by Euphoriks',
+              style: TextStyle(
+                color: Color(0xFF6750E8),
+                fontSize: 14,
+                fontWeight: FontWeight.w800,
+              ),
+            ),
+            const SizedBox(height: 10),
             const Text(
               'Choose a learning level and a fun explorer identity. '
               'We never need your real name or exact age.',
@@ -94,7 +103,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                       child: CircularProgressIndicator(strokeWidth: 2),
                     )
                   : const Icon(Icons.rocket_launch_rounded),
-              label: Text(isSaving ? 'Preparing...' : 'Enter CurioVerse'),
+              label: Text(isSaving ? 'Preparing...' : 'Enter Quizzie'),
               style: FilledButton.styleFrom(
                 minimumSize: const Size.fromHeight(56),
                 textStyle: const TextStyle(
