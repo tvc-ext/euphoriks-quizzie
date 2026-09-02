@@ -17,7 +17,7 @@ Future<void> main() async {
   final profileStore = SharedPreferencesProfileStore(preferences);
   final progressStore = SharedPreferencesProgressStore(preferences);
   runApp(
-    CurioVerseApp(
+    QuizzieApp(
       profileStore: profileStore,
       progressStore: progressStore,
       knowledgeSource: OpenKnowledgeService(preferences: preferences),
@@ -27,13 +27,8 @@ Future<void> main() async {
   );
 }
 
-/// Public product branding is Euphoriks Quizzie.
-///
-/// The legacy widget class name is intentionally retained for source and test
-/// compatibility while the Google Play package/application identity remains
-/// unchanged during the rebrand.
-class CurioVerseApp extends StatefulWidget {
-  const CurioVerseApp({
+class QuizzieApp extends StatefulWidget {
+  const QuizzieApp({
     required this.profileStore,
     this.progressStore,
     this.knowledgeSource,
@@ -51,10 +46,10 @@ class CurioVerseApp extends StatefulWidget {
   final bool showSplash;
 
   @override
-  State<CurioVerseApp> createState() => _CurioVerseAppState();
+  State<QuizzieApp> createState() => _QuizzieAppState();
 }
 
-class _CurioVerseAppState extends State<CurioVerseApp> {
+class _QuizzieAppState extends State<QuizzieApp> {
   late bool showSplash = widget.showSplash;
   late ChildProfile? profile = widget.initialProfile;
   late LearningProgress progress =
@@ -106,7 +101,7 @@ class _CurioVerseAppState extends State<CurioVerseApp> {
         ),
       ),
       home: showSplash
-          ? CurioVerseSplashScreen(
+          ? QuizzieSplashScreen(
               onFinished: () => setState(() => showSplash = false),
             )
           : profile == null
