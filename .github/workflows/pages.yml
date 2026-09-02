@@ -62,6 +62,10 @@ jobs:
           grep -qi "Euphoriks Quizzie" site/index.html
           grep -qi "Quizzie" site/support/index.html
           grep -qi "Euphoriks Quizzie" site/privacy/index.html
+          if grep -qi '<title>CurioVerse' site/index.html site/privacy/index.html site/support/index.html; then
+            echo "Legacy CurioVerse title found in public website."
+            exit 1
+          fi
 
       - name: Upload Pages artifact
         if: github.event_name != 'pull_request'
