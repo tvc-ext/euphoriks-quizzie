@@ -1,45 +1,62 @@
-# Product vision
+# Euphoriks Quizzie product vision
 
 ## Problem
 
-Children often spend time in open-ended entertainment environments that optimize for attention rather than curiosity. Parents need an alternative that feels playful without exposing children to public identities, uncontrolled chat, ads, or unsafe content.
+Children often spend time in open-ended entertainment environments that optimise for attention rather than curiosity. Parents need an alternative that feels playful without requiring public identities, uncontrolled chat, ads, or unnecessary personal data.
 
 ## Vision
 
-CurioVerse is a colourful learning universe where children explore visual knowledge, complete fast quizzes, play thinking games, create with AI-assisted activities, and connect with approved friends using fictional identities.
+**Euphoriks Quizzie** is a colourful learning adventure where children explore visual knowledge, complete fast quizzes, play thinking games, and use image discovery to turn everyday curiosity into short learning missions.
 
-## Audience
+Quizzie is the child-facing product. Euphoriks is the master brand.
+
+## Current audience model
+
+The app currently offers broad in-app learning bands:
 
 | Age band | Experience |
 |---|---|
-| 6–8 | Large visuals, read-aloud-ready copy, matching, patterns, simple science |
-| 9–11 | Quizzes, logic challenges, experiments, geography, creative missions |
-| 12–14 | Deeper reasoning, coding concepts, responsible AI, collaborative challenges |
+| 6–8 | Large visuals, matching, patterns, simple science and guided discovery |
+| 9–11 | Quizzes, logic challenges, geography, science and creative missions |
+| 12–14 | Deeper reasoning, coding/AI concepts and more challenging exploration |
+
+Google Play target-audience declarations are managed separately in Play Console and must be kept consistent with the production release and policy decisions.
 
 ## Core loops
 
-1. Discover a visual topic.
-2. Complete a two-to-five-minute challenge.
-3. Earn curiosity energy and unlock a collectible.
-4. Build or create something with the new idea.
-5. Optionally compare or collaborate with an approved friend.
+1. Discover a visual topic or learning world.
+2. Complete a short challenge, quiz, puzzle or exploration activity.
+3. Earn local curiosity energy/progress.
+4. Move to another topic or replay a challenge.
+5. Use the device-only Explorer Clubhouse as a fictional team experience, not public child-to-child chat.
 
-## Initial screens
+## Current product surfaces
 
-1. Age-band and avatar setup
-2. Home universe
-3. Explore topics
-4. Visual story card
-5. Quiz challenge
-6. Mini-games hub
-7. Game play
-8. Creative lab
-9. Friends clubhouse
-10. Profile and parent controls
+1. Broad age-band and explorer-avatar setup
+2. Home learning universe
+3. Learning Adventures / topic exploration
+4. Quiz challenges
+5. Brain Arcade
+6. Pattern game
+7. Image discovery / picture scanner
+8. Explorer Clubhouse
+9. Local progress and profile controls
+
+## Safety and privacy posture
+
+- Fictional explorer aliases rather than child real names.
+- Profile/progress stored locally in the current release.
+- No Euphoriks cloud account or cloud profile database in the current release.
+- No ads or analytics trackers in the current release.
+- No public/free-form child chat.
+- Camera/gallery access is optional and limited to image discovery.
+- Image labeling runs on-device in the current implementation.
+- Some learning experiences request public educational content over the network, so the product must not be marketed as transmitting no third-party network data.
 
 ## Success measures
 
-- Child voluntarily returns to explore a different topic.
-- Sessions contain active challenges, not only scrolling.
-- Parents understand and trust identity and social controls.
-- Core prototype works fully offline.
+- Children voluntarily explore different topics and challenges.
+- Sessions contain active thinking rather than only scrolling.
+- Parents can understand the identity, privacy and network boundaries.
+- Built-in learning remains useful when public content is unavailable, while network-enhanced experiences fail gracefully.
+- Store listing claims and screenshots remain demonstrably true for the release AAB.
