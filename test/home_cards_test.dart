@@ -53,7 +53,7 @@ Future<void> _pumpHome(WidgetTester tester, ChildProfile profile) async {
   addTearDown(tester.view.resetDevicePixelRatio);
 
   await tester.pumpWidget(
-    CurioVerseApp(
+    QuizzieApp(
       profileStore: MemoryProfileStore(profile),
       initialProfile: profile,
     ),
