@@ -160,11 +160,8 @@ List<QuizQuestion> createQuizSession(
   final source = random ?? Random();
   final seeds = [...?_seeds[topicId]]..shuffle(source);
   final variants = switch (ageBand) {
-    // A gentle stretch: mostly direct recall, plus medium reasoning.
     AgeBand.explorer6to8 => [0, 0, 0, 1, 1, 1, 3, 3, 2, 0],
-    // More application and inference than simple recall.
     AgeBand.adventurer9to11 => [0, 1, 1, 2, 2, 3, 3, 4, 1, 2],
-    // A deliberately demanding mix dominated by hard reasoning.
     AgeBand.creator12to14 => [1, 2, 2, 2, 3, 4, 4, 4, 2, 4],
   }..shuffle(source);
   return [
@@ -202,7 +199,6 @@ QuizQuestion _buildQuestion(_Seed seed, int variant) {
   );
 }
 
-
 QuizDifficulty _difficultyFor(QuizDifficulty seedDifficulty, int variant) {
   final variantDifficulty = switch (variant) {
     0 => QuizDifficulty.easy,
@@ -213,7 +209,6 @@ QuizDifficulty _difficultyFor(QuizDifficulty seedDifficulty, int variant) {
       ? seedDifficulty
       : variantDifficulty;
 }
-
 
 const _remoteContentRoot =
     'https://raw.githubusercontent.com/tvc-ext/-curioverse-content/main';
@@ -266,12 +261,7 @@ Future<List<QuizQuestion>> createRemoteQuizSession(
       seen.clear();
       unseen = bank;
     }
-    final session = _selectRemoteSession(
-      unseen,
-      topicId,
-      ageBand,
-      size,
-    );
+    final session = _selectRemoteSession(unseen, ageBand, size);
     seen.addAll(session.map((question) => question.id));
     await preferences.setStringList(historyKey, seen.toList());
     return session;
@@ -282,25 +272,15 @@ Future<List<QuizQuestion>> createRemoteQuizSession(
 
 List<QuizQuestion> _selectRemoteSession(
   List<QuizQuestion> bank,
-  String topicId,
   AgeBand ageBand,
   int size,
 ) {
+  if (bank.length < size) return const <QuizQuestion>[];
   final random = Random();
   final candidates = [...bank]..shuffle(random);
   candidates.sort((a, b) {
-    final direction =
-        ageBand == AgeBand.creator12to14 ? -1 : 1;
+    final direction = ageBand == AgeBand.creator12to14 ? -1 : 1;
     return direction * a.difficulty.index.compareTo(b.difficulty.index);
   });
-  final selected = <QuizQuestion>[];
-  final concepts = <String>{};
-  for (final question in candidates) {
-    final concept = question.id.split('.v').first;
-    if (concepts.add(concept)) selected.add(question);
-    if (selected.length == size) break;
-  }
-  return selected.length == size
-      ? selected
-      : createQuizSession(topicId, ageBand: ageBand, size: size);
+  return candidates.take(size).toList(growable: false);
 }
