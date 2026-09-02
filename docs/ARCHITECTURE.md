@@ -51,7 +51,7 @@ Quizzie is local-first, not network-free. Some experiences request public educat
 
 ## Release identity boundary
 
-The public product name is **Euphoriks Quizzie**, but the existing Dart package/repository slug and Android package/application identity retain the historical `curioverse` naming for Google Play update continuity. Rebranding must not silently create a new Android application identity.
+The public product name, GitHub repository, and public Pages path use **Euphoriks Quizzie**. The existing Dart package/import prefix and Android package/application identity remain unchanged because the current Google Play update path depends on them. Rebranding must not silently create a new Android application identity.
 
 ## Evolution
 

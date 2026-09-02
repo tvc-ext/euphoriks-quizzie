@@ -8,7 +8,7 @@ void main() {
     var finished = false;
     await tester.pumpWidget(
       MaterialApp(
-        home: CurioVerseSplashScreen(onFinished: () => finished = true),
+        home: QuizzieSplashScreen(onFinished: () => finished = true),
       ),
     );
 

@@ -33,7 +33,7 @@ void main() {
 
       await tester.pumpWidget(
         captureBoundary(
-          CurioVerseApp(
+          QuizzieApp(
             key: const ValueKey('store-onboarding-app'),
             showSplash: false,
             profileStore: MemoryProfileStore(),
@@ -52,7 +52,7 @@ void main() {
       );
       await tester.pumpWidget(
         captureBoundary(
-          CurioVerseApp(
+          QuizzieApp(
             key: const ValueKey('store-home-app'),
             showSplash: false,
             profileStore: MemoryProfileStore(profile),

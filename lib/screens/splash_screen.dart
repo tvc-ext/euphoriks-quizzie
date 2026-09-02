@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
-class CurioVerseSplashScreen extends StatefulWidget {
-  const CurioVerseSplashScreen({required this.onFinished, super.key});
+class QuizzieSplashScreen extends StatefulWidget {
+  const QuizzieSplashScreen({required this.onFinished, super.key});
 
   final VoidCallback onFinished;
 
   @override
-  State<CurioVerseSplashScreen> createState() => _CurioVerseSplashScreenState();
+  State<QuizzieSplashScreen> createState() => _QuizzieSplashScreenState();
 }
 
-class _CurioVerseSplashScreenState extends State<CurioVerseSplashScreen>
+class _QuizzieSplashScreenState extends State<QuizzieSplashScreen>
     with SingleTickerProviderStateMixin {
   late final AnimationController controller = AnimationController(
     vsync: this,

@@ -19,7 +19,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: curioverse-pages
+  group: euphoriks-quizzie-pages
   cancel-in-progress: true
 
 jobs:
@@ -55,15 +55,16 @@ jobs:
           grep -qi "no Euphoriks account system" site/privacy/index.html
           grep -qi "no ads" site/privacy/index.html
           grep -qi "should not be described as transmitting no third-party network data" site/privacy/index.html
-          grep -qi "previously named CurioVerse" site/privacy/index.html
+          grep -qi "Branding and technical continuity" site/privacy/index.html
 
       - name: Validate public branding
         run: |
           grep -qi "Euphoriks Quizzie" site/index.html
           grep -qi "Quizzie" site/support/index.html
           grep -qi "Euphoriks Quizzie" site/privacy/index.html
-          if grep -qi '<title>CurioVerse' site/index.html site/privacy/index.html site/support/index.html; then
-            echo "Legacy CurioVerse title found in public website."
+          legacy_brand='Curio''Verse'
+          if grep -Rqi "$legacy_brand" site; then
+            echo "Legacy public brand found in website content."
             exit 1
           fi
 
@@ -82,6 +83,6 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - name: Deploy to GitHub Pages
+      - name: Deploy GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4

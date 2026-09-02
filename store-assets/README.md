@@ -29,7 +29,7 @@ A dedicated GitHub Actions workflow renders the SVG graphic sources to Play-comp
 2. Decorative framing/captions must not obscure or materially alter the app UI.
 3. Captions must describe functionality available in the submitted release.
 4. The feature graphic can be illustrative, but must not imply unavailable features.
-5. Keep the existing Android package/application identity unchanged during this rebrand.
+5. Keep the existing Android package/application identity unchanged during the branding migration.
 6. Review `PLAY_STORE_LISTING.md` and the current privacy policy before every Play submission.
 
 ## Brand lockup
@@ -39,4 +39,4 @@ A dedicated GitHub Actions workflow renders the SVG graphic sources to Play-comp
 - Full display name: **Euphoriks Quizzie**
 - Tagline: **Explore • Play • Learn**
 
-The historical `curioverse` repository/technical naming remains where required for continuity; public-facing assets use Euphoriks Quizzie.
+The repository, Pages URLs and public-facing assets use Euphoriks Quizzie. Only release-critical package/signing identifiers remain unchanged where required for Google Play continuity.

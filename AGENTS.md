@@ -4,7 +4,7 @@
 
 Build a safe, delightful, local-first mobile learning adventure for children. Prefer short visual interactions, discovery, creativity, and replayable challenges over passive feeds.
 
-Public product branding is **Euphoriks Quizzie** (short child-facing name: **Quizzie**, master brand: **Euphoriks**). Historical technical identifiers such as the repository slug, Dart package name, Android package/application identity, and signing-secret names may retain `curioverse` for release continuity.
+Public product branding is **Euphoriks Quizzie** (short child-facing name: **Quizzie**, master brand: **Euphoriks**). The GitHub repository and public Pages path use the Euphoriks Quizzie name. Only technical identifiers that are required for Google Play update/signing continuity may retain legacy values.
 
 ## Non-negotiable safety rules
 
@@ -25,6 +25,7 @@ Public product branding is **Euphoriks Quizzie** (short child-facing name: **Qui
 - Add tests for quiz scoring, age-band filtering, safety controls, and public branding.
 - Prefer immutable models and deterministic local fixtures.
 - Preserve the existing Android package/application identity while the current Google Play listing and closed-test update path depend on it.
+- Preserve the existing Dart package/import prefix until a separately reviewed migration is approved.
 - Run `flutter analyze` and `flutter test` before publishing.
 
 ## Branding conventions
@@ -34,3 +35,4 @@ Public product branding is **Euphoriks Quizzie** (short child-facing name: **Qui
 - Tagline: **Explore • Play • Learn**.
 - Store screenshots must show actual release UI, not concept-only features.
 - Privacy/safety claims must describe actual code and dependencies rather than marketing intent.
+- Do not introduce the former public brand into new user-facing copy, docs, assets, workflow names, repository links, or Pages URLs.

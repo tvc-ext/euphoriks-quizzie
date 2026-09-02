@@ -8,9 +8,9 @@
 - **Compact in-app lockup:** Quizzie · by Euphoriks
 - **Tagline:** Explore • Play • Learn
 - **Category:** Education
-- **Website:** https://tvc-ext.github.io/curioverse/
-- **Privacy policy:** https://tvc-ext.github.io/curioverse/privacy/
-- **Support:** https://tvc-ext.github.io/curioverse/support/
+- **Website:** https://tvc-ext.github.io/euphoriks-quizzie/
+- **Privacy policy:** https://tvc-ext.github.io/euphoriks-quizzie/privacy/
+- **Support:** https://tvc-ext.github.io/euphoriks-quizzie/support/
 - **Technical continuity:** existing Android package/application identity remains unchanged
 
 ## Final short description
@@ -85,7 +85,7 @@ Required output: **512 × 512 PNG/JPEG**, ≤1 MB for Play listing.
 
 Source in this repository: `graphics/app-icon-512.svg`.
 
-The icon uses the new Quizzie identity rather than the historical CurioVerse logo. The Android release workflow also injects a rebranded launcher drawable while preserving the existing application identity.
+The icon uses the Quizzie identity. The Android release workflow also injects a rebranded launcher drawable while preserving the existing application identity.
 
 ## Store asset generation
 
@@ -127,4 +127,4 @@ Avoid absolute or unverified claims such as:
 
 ## Rebranded release notes draft
 
-Meet **Euphoriks Quizzie** — the next chapter of the learning app previously known as CurioVerse. Explore learning worlds, brain challenges, quizzes and visual discoveries with refreshed Quizzie branding while keeping the same app update path and local learning progress.
+Meet **Euphoriks Quizzie** with refreshed branding, rotating learning-world quizzes, brain challenges and visual discoveries while keeping the same app update path and local learning progress.
