@@ -211,7 +211,7 @@ QuizDifficulty _difficultyFor(QuizDifficulty seedDifficulty, int variant) {
 }
 
 const _remoteContentRoot =
-    'https://raw.githubusercontent.com/tvc-ext/-curioverse-content/main';
+    'https://raw.githubusercontent.com/tvc-ext/euphoriks-quizzie-content/main';
 
 Future<List<QuizQuestion>> createRemoteQuizSession(
   String topicId, {
