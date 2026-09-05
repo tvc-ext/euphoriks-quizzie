@@ -1,0 +1,111 @@
+name: Publish Latest GitHub Release
+
+on:
+  workflow_run:
+    workflows: ["Android Release"]
+    types: [completed]
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: "Optional successful Android Release run ID. Leave blank to use the latest successful main run."
+        required: false
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  publish:
+    name: Refresh latest Euphoriks Quizzie release
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Resolve Android release run
+        id: release_run
+        shell: bash
+        run: |
+          set -euo pipefail
+          if [ "${{ github.event_name }}" = "workflow_run" ]; then
+            run_id="${{ github.event.workflow_run.id }}"
+          elif [ -n "${{ github.event.inputs.run_id }}" ]; then
+            run_id="${{ github.event.inputs.run_id }}"
+          else
+            run_id=$(gh run list \
+              --repo "$GITHUB_REPOSITORY" \
+              --workflow "Android Release" \
+              --branch main \
+              --status success \
+              --limit 1 \
+              --json databaseId \
+              --jq '.[0].databaseId')
+          fi
+
+          test -n "$run_id"
+          head_sha=$(gh run view "$run_id" --repo "$GITHUB_REPOSITORY" --json headSha --jq '.headSha')
+          run_number=$(gh run view "$run_id" --repo "$GITHUB_REPOSITORY" --json number --jq '.number')
+          conclusion=$(gh run view "$run_id" --repo "$GITHUB_REPOSITORY" --json conclusion --jq '.conclusion')
+
+          if [ "$conclusion" != "success" ]; then
+            echo "Android Release run $run_id did not succeed (conclusion: $conclusion)."
+            exit 1
+          fi
+
+          echo "run_id=$run_id" >> "$GITHUB_OUTPUT"
+          echo "head_sha=$head_sha" >> "$GITHUB_OUTPUT"
+          echo "run_number=$run_number" >> "$GITHUB_OUTPUT"
+
+      - name: Download signed release assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p release-assets/apk release-assets/aab
+          gh run download "${{ steps.release_run.outputs.run_id }}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --name euphoriks-quizzie-tester-apk \
+            --dir release-assets/apk
+          gh run download "${{ steps.release_run.outputs.run_id }}" \
+            --repo "$GITHUB_REPOSITORY" \
+            --name euphoriks-quizzie-play-store-aab \
+            --dir release-assets/aab
+          test -f release-assets/apk/euphoriks-quizzie-latest.apk
+          test -f release-assets/aab/euphoriks-quizzie-play-store.aab
+
+      - name: Replace stale latest release
+        shell: bash
+        run: |
+          set -euo pipefail
+          if gh release view latest --repo "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+            gh release delete latest --repo "$GITHUB_REPOSITORY" --yes --cleanup-tag
+          fi
+
+          cat > release-notes.md <<EOF
+          Latest successful Euphoriks Quizzie Android build.
+
+          Android build: ${{ steps.release_run.outputs.run_number }}
+          Commit: ${{ steps.release_run.outputs.head_sha }}
+
+          This release replaces the previous latest Android release automatically. The existing Android package/application identity and signing continuity are preserved for Google Play updates.
+          EOF
+
+          gh release create latest \
+            --repo "$GITHUB_REPOSITORY" \
+            --target "${{ steps.release_run.outputs.head_sha }}" \
+            --title "Euphoriks Quizzie Latest Android Release" \
+            --notes-file release-notes.md \
+            --latest \
+            release-assets/apk/euphoriks-quizzie-latest.apk \
+            release-assets/aab/euphoriks-quizzie-play-store.aab
+
+      - name: Verify published release
+        shell: bash
+        run: |
+          set -euo pipefail
+          gh release view latest --repo "$GITHUB_REPOSITORY" --json name,tagName,isLatest,assets --jq '{name,tagName,isLatest,assets:[.assets[].name]}'
+          test "$(gh release view latest --repo "$GITHUB_REPOSITORY" --json name --jq '.name')" = "Euphoriks Quizzie Latest Android Release"
+          gh release view latest --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | grep -Fx 'euphoriks-quizzie-latest.apk'
+          gh release view latest --repo "$GITHUB_REPOSITORY" --json assets --jq '.assets[].name' | grep -Fx 'euphoriks-quizzie-play-store.aab'
