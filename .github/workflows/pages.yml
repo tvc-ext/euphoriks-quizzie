@@ -57,6 +57,12 @@ jobs:
           grep -qi "should not be described as transmitting no third-party network data" site/privacy/index.html
           grep -qi "Branding and technical continuity" site/privacy/index.html
 
+      - name: Validate privacy page is self-contained
+        run: |
+          test -s site/privacy/index.html
+          grep -qi "<title>Euphoriks Quizzie Privacy Policy</title>" site/privacy/index.html
+          grep -qi "Contact" site/privacy/index.html
+
       - name: Validate public branding
         run: |
           grep -qi "Euphoriks Quizzie" site/index.html
