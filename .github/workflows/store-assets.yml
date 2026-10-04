@@ -31,6 +31,9 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends librsvg2-bin
 
+      - name: Validate matching launcher artwork
+        run: python3 scripts/validate-release-branding.py
+
       - name: Render and validate assets
         run: bash scripts/render-store-assets.sh
 

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../models/child_profile.dart';
+import 'privacy_policy_screen.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({required this.onComplete, super.key});
@@ -60,6 +61,11 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               'Choose a learning level and a fun explorer identity. '
               'We never need your real name or exact age.',
               style: TextStyle(fontSize: 16, height: 1.4),
+            ),
+            TextButton.icon(
+              onPressed: () => PrivacyPolicyScreen.open(context),
+              icon: const Icon(Icons.privacy_tip_outlined),
+              label: const Text('Privacy policy'),
             ),
             const SizedBox(height: 28),
             const _StepTitle(number: 1, title: 'Choose your age group'),
