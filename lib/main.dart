@@ -9,6 +9,7 @@ import 'screens/brain_arcade_screen.dart';
 import 'screens/friends_clubhouse_screen.dart';
 import 'screens/learning_adventure_screen.dart';
 import 'screens/onboarding_screen.dart';
+import 'screens/privacy_policy_screen.dart';
 import 'screens/splash_screen.dart';
 
 Future<void> main() async {
@@ -224,6 +225,7 @@ class _UniverseShellState extends State<UniverseShell> {
             tooltip: 'Explorer profile',
             onSelected: (value) {
               if (value == 'reset') widget.onResetProfile();
+              if (value == 'privacy') PrivacyPolicyScreen.open(context);
             },
             itemBuilder: (context) => [
               PopupMenuItem(
@@ -231,6 +233,14 @@ class _UniverseShellState extends State<UniverseShell> {
                 child: Text(
                   '${widget.profile.avatar.emoji} ${widget.profile.avatar.alias} · ${widget.profile.ageBand.label}',
                   style: const TextStyle(fontWeight: FontWeight.w800),
+                ),
+              ),
+              const PopupMenuItem(
+                value: 'privacy',
+                child: ListTile(
+                  contentPadding: EdgeInsets.zero,
+                  leading: Icon(Icons.privacy_tip_outlined),
+                  title: Text('Privacy policy'),
                 ),
               ),
               const PopupMenuItem(

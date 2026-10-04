@@ -1,0 +1,135 @@
+Privacy Policy
+
+
+Euphoriks Quizzie privacy policy
+
+
+Effective date: 2 September 2026
+
+
+Euphoriks Quizzie is designed as a child-friendly, local-first learning app. This policy describes the current implementation of the app and website.
+
+
+
+
+Summary
+
+
+Quizzie currently does not provide Euphoriks cloud accounts, a Euphoriks cloud database, ads, purchases, analytics, cookies, trackers, website forms, public chat, or social posting. The app stores the child's explorer profile and learning progress on the device.
+
+
+
+Information the app asks the child to choose
+
+
+During onboarding, Quizzie asks the child to choose a broad age band and an explorer avatar. The current in-app age bands are 6-8, 9-11, and 12-14. The avatar is a playful fictional alias such as Nova Fox, Pixel Panda, Cosmo Cat, or Astro Owl.
+
+
+The current app does not ask for a real name, exact age, school, phone number, email address, precise location, or account password.
+
+
+
+Local storage on the device
+
+
+Quizzie uses local app storage through Flutter Shared Preferences. Current stored values can include:
+
+
+
+Selected broad age band.
+
+
+Selected explorer avatar ID.
+
+
+Curiosity energy score.
+
+
+Completed topic or game IDs.
+
+
+Question history used to reduce repeated quiz questions.
+
+
+Cached public educational content and remote question packs.
+
+
+
+This data is intended to stay on the device unless the operating system, backup settings, or parent-managed device tools copy app data outside the app.
+
+
+
+Camera, gallery, and image labeling
+
+
+The picture scanner can ask for camera access or gallery access when the child chooses to take or select a picture. Quizzie uses image-picker functionality to load the selected image into the app.
+
+
+Current image labeling uses Google ML Kit image labeling on the device. The app does not upload the photo for labeling in the current implementation. After a label is detected, the app may send the detected label text, such as an animal or object name, to Wikipedia to request a public educational summary.
+
+
+Image labels can be wrong. Quizzie presents them as discovery hints rather than authoritative identification.
+
+
+
+External and public educational content
+
+
+Quizzie can request public educational content from third-party public sources. The current implementation includes requests to Wikipedia summary APIs, NASA image search APIs, and public GitHub-hosted content used for versioned learning material.
+
+
+These requests are used to show educational content and may cache it locally. Because these are third-party services, ordinary network requests may include technical information such as IP address, request time, requested URL, and user-agent details as part of normal internet operation.
+
+
+Quizzie should not be described as transmitting no third-party network data, because public educational content requests are part of the current implementation.
+
+
+
+Accounts, backend, and database
+
+
+The current Quizzie app has no Euphoriks account system and no Euphoriks cloud database. It does not currently sync a child's profile or progress to a Euphoriks server.
+
+
+
+Advertising, analytics, cookies, and tracking
+
+
+The current Quizzie app has no ads, ad SDKs, in-app purchases, analytics SDKs, or behavioural tracking features. This static website does not include analytics, cookies, trackers, forms, JavaScript, or a backend.
+
+
+
+Children's safety choices
+
+
+Quizzie is built around broad age bands, local progress, short learning missions, and fictional explorer identities. The current app avoids collecting direct personal identifiers from children and does not provide public/free-form child-to-child chat or public profile sharing.
+
+
+
+Data deletion
+
+
+The app includes a way to reset the explorer profile, which clears the stored age band, avatar, and learning progress from local app storage. A parent can also remove local app data using Android app-storage controls or by uninstalling the app.
+
+
+
+Changes to this policy
+
+
+This policy should be updated before adding accounts, cloud sync, ads, analytics, purchases, real friend connections, public sharing, or any new third-party data flow.
+
+
+
+Contact
+
+
+For support and privacy questions, use the support contact path listed in the Google Play listing or the Euphoriks Quizzie Support page.
+
+
+
+Branding and technical continuity
+
+
+The GitHub repository and public Pages path use the Euphoriks Quizzie name. Existing Android/Dart package identity and signing configuration may retain established technical values where changing them could break application updates or signing continuity. The branding change does not itself introduce a new account, backend, analytics system, advertising SDK, or data flow.
+
+Published policy: https://tvc-ext.github.io/euphoriks-quizzie/privacy/

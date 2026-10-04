@@ -85,7 +85,7 @@ Required output: **512 × 512 PNG/JPEG**, ≤1 MB for Play listing.
 
 Source in this repository: `graphics/app-icon-512.svg`.
 
-The icon uses the Quizzie identity. The Android release workflow also injects a rebranded launcher drawable while preserving the existing application identity.
+The icon matches `store-assets/android/quizzie_launcher.xml` path-for-path and uses the same colours and viewport. `scripts/validate-release-branding.py` checks this in CI. The Android release workflow also injects a rebranded launcher drawable while preserving the existing application identity.
 
 ## Store asset generation
 
